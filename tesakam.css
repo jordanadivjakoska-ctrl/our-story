@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* CELATA STRANA */
+
+.love-wall {
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    #ead9c8 0%,
+                    #d8c0aa 55%,
+                    #b99b82 100%
+            );
+
+    overflow: hidden;
+}
+
+
+/* MALA TEKSTURA NA DZIDOT */
+
+.love-wall::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+            repeating-linear-gradient(
+                    90deg,
+                    rgba(80, 50, 35, 0.025) 0px,
+                    rgba(80, 50, 35, 0.025) 1px,
+                    transparent 1px,
+                    transparent 5px
+            );
+
+    pointer-events: none;
+}
+
+
+/* NASLOV */
+
+.naslov {
+    position: absolute;
+
+    top: 7%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    color: #5e4036;
+
+    z-index: 10;
+}
+
+.naslov h1 {
+    font-family: Georgia, serif;
+
+    font-size: 45px;
+
+    font-weight: normal;
+
+    font-style: italic;
+}
+
+.naslov p {
+    margin-top: 8px;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+
+    color: #8c6b5d;
+}
+
+
+/* FOTOGRAFII */
+
+.photo {
+    position: absolute;
+
+    width: 210px;
+
+    background: #fffaf3;
+
+    padding:
+            10px
+            10px
+            35px
+            10px;
+
+    box-shadow:
+            0 12px 25px rgba(65, 42, 30, 0.35);
+
+    transition: 0.4s ease;
+}
+
+
+/* SLIKATA */
+
+.photo img {
+    display: block;
+
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: cover;
+}
+
+
+/* TOPUFCETO */
+
+.pin {
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background:
+            radial-gradient(
+                    circle at 35% 30%,
+                    #ffd0d7,
+                    #a83f55 65%,
+                    #642637
+            );
+
+    top: -8px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+
+    box-shadow:
+            0 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+/* RASPORED */
+
+.photo1 {
+    left: 6%;
+    top: 12%;
+
+    transform: rotate(-8deg);
+}
+
+.photo2 {
+    left: 27%;
+    bottom: 7%;
+
+    transform: rotate(5deg);
+}
+
+.photo3 {
+    left: 44%;
+    top: 25%;
+
+    transform: rotate(-3deg);
+}
+
+.photo4 {
+    right: 20%;
+    top: 9%;
+
+    transform: rotate(7deg);
+}
+
+.photo5 {
+    right: 4%;
+    bottom: 7%;
+
+    transform: rotate(-6deg);
+}
+
+/* =====================================
+   KLIK NA FOTOGRAFIJA
+===================================== */
+
+.photo {
+    cursor: pointer;
+}
+
+
+/* BRZO VRTENJE */
+
+.photo.spinning {
+    animation: spinPhoto 1s ease-in-out !important;
+    z-index: 1000;
+}
+
+@keyframes spinPhoto {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(360deg) scale(1.15);
+    }
+
+    50% {
+        transform: rotate(720deg) scale(1.3);
+    }
+
+    75% {
+        transform: rotate(1080deg) scale(1.45);
+    }
+
+    100% {
+        transform: rotate(1440deg) scale(1);
+    }
+}
+
+
+/* =====================================
+   OTVORENA FOTOGRAFIJA
+===================================== */
+
+.photo.opened {
+
+    position: fixed !important;
+
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    width: 70vw !important;
+    height: 80vh !important;
+
+    padding: 0 !important;
+
+    transform:
+            translate(-50%, -50%)
+            rotate(0deg) !important;
+
+    z-index: 9999;
+
+    background: transparent;
+
+    box-shadow: none;
+}
+
+
+/* VNATRESNIOT DEL */
+
+.photo-inner {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+}
+
+
+/* KOGA SE OTVORA */
+
+.photo.opened .photo-inner {
+
+    animation: flipOpen 0.8s ease forwards;
+}
+
+@keyframes flipOpen {
+
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+
+/* =====================================
+   PREDNA STRANA
+===================================== */
+
+.photo-front {
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+}
+
+.photo.opened .photo-front {
+
+    position: absolute;
+
+    inset: 0;
+}
+
+
+/* =====================================
+   ZADNA STRANA
+===================================== */
+
+.photo-back {
+
+    display: none;
+}
+
+.photo.opened .photo-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px;
+
+    background:
+            linear-gradient(
+                    145deg,
+                    #fff5f1,
+                    #f6d9dc,
+                    #edbdc5
+            );
+
+    border: 12px solid #fff8f3;
+
+    box-shadow:
+            0 25px 70px rgba(50, 20, 20, 0.5);
+
+    text-align: center;
+
+    color: #633e47;
+
+    backface-visibility: hidden;
+
+    transform: rotateY(180deg);
+}
+
+
+.photo-back h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    margin-bottom: 30px;
+}
+
+
+.photo-back p {
+
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    line-height: 1.8;
+
+    max-width: 700px;
+}
+
+
+.heart-back {
+
+    font-size: 55px;
+
+    color: #ad5268;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================
+   ZATVORANJE
+===================================== */
+
+.photo.opened.closing {
+
+    animation: closeSpin 1s ease forwards !important;
+}
+
+@keyframes closeSpin {
+
+    0% {
+
+        transform:
+                translate(-50%, -50%)
+                rotate(0deg)
+                scale(1);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+                translate(-50%, -50%)
+                rotate(1080deg)
+                scale(0.2);
+
+        opacity: 0;
+    }
+}
+
+
+/* TOPUFCETO DA GO NEMA KOGA E OTVORENA */
+
+.photo.opened .pin {
+
+    display: none;
+}
+
+
+/* TEKST DOLU */
+
+.photo-back::after {
+
+    content: "click to go back ♡";
+
+    position: absolute;
+
+    bottom: 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+}

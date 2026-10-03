@@ -1,0 +1,2066 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.pocetna {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #1c1614;
+    position: relative;
+}
+
+.pocetna img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.poceten-tekst {
+    position: absolute;
+    top: 50%;
+    left: 6%;
+    transform: translateY(-50%);
+    color: #f4e6d7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.poceten-tekst h1 {
+    font-family: Georgia, serif;
+    font-size: 55px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.poceten-tekst p {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+/* ВТОРА СТРАНА */
+
+.vtora-strana {
+    width: 100%;
+    height: 100vh;
+    background: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    scroll-snap-align: start;
+}
+
+.pocetna {
+    scroll-snap-align: start;
+}
+
+
+/* ДЕВОЈЧЕ */
+
+.devojce {
+    position: relative;
+    width: 200px;
+    height: 350px;
+}
+
+
+/* ГЛАВА */
+
+.glava {
+    position: absolute;
+
+    width: 90px;
+    height: 100px;
+
+    background: #f3c6a8;
+
+    border-radius: 50%;
+
+    top: 20px;
+    left: 55px;
+
+    z-index: 3;
+}
+
+
+/* КОСА */
+
+.kosa {
+    position: absolute;
+
+    width: 110px;
+    height: 130px;
+
+    background: #4a2c24;
+
+    border-radius: 60px 60px 45px 45px;
+
+    top: 10px;
+    left: 45px;
+
+    z-index: 2;
+}
+
+
+/* ТЕЛО */
+
+.telo {
+    position: absolute;
+
+    width: 120px;
+    height: 170px;
+
+    background: #d8a7b1;
+
+    border-radius: 60px 60px 20px 20px;
+
+    top: 115px;
+    left: 40px;
+
+    z-index: 2;
+}
+
+
+/* РАЦЕ */
+
+.raka {
+    position: absolute;
+
+    width: 25px;
+    height: 120px;
+
+    background: #f3c6a8;
+
+    border-radius: 20px;
+
+    top: 130px;
+
+    z-index: 1;
+}
+
+.raka-levo {
+    left: 25px;
+    transform: rotate(25deg);
+}
+
+.raka-desno {
+    right: 25px;
+    transform: rotate(-25deg);
+}
+
+
+/* СРЦИЊА */
+
+.srce {
+    position: absolute;
+
+    color: #d96c83;
+
+    font-size: 30px;
+
+    opacity: 0;
+
+    animation: letaSrce 4s infinite;
+}
+
+.srce1 {
+    left: 80px;
+    top: 70px;
+}
+
+.srce2 {
+    left: 120px;
+    top: 100px;
+    animation-delay: 0.8s;
+}
+
+.srce3 {
+    left: 55px;
+    top: 110px;
+    animation-delay: 1.6s;
+}
+
+.srce4 {
+    left: 145px;
+    top: 80px;
+    animation-delay: 2.4s;
+}
+
+.srce5 {
+    left: 30px;
+    top: 90px;
+    animation-delay: 3.2s;
+}
+
+
+/* АНИМАЦИЈА */
+
+@keyframes letaSrce {
+
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-250px) scale(1.4) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* ОЧИ */
+
+.oci {
+    position: absolute;
+    top: 65px;
+    left: 76px;
+    display: flex;
+    gap: 20px;
+    z-index: 5;
+}
+
+.oko {
+    width: 12px;
+    height: 3px;
+    background: #3b2925;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+/* Кога ќе притиснеме ENTER */
+
+.devojce.aktivna .oko {
+    height: 12px;
+    border-radius: 50%;
+}
+
+
+/* БАКНЕЖИ */
+
+.baknez {
+    position: absolute;
+    font-size: 28px;
+
+    top: 80px;
+    left: 90px;
+
+    opacity: 0;
+    z-index: 10;
+}
+
+
+/* Се активираат со ENTER */
+
+.devojce.aktivna .baknez {
+    animation: pratiBaknez 3s infinite;
+}
+
+.devojce.aktivna .b1 {
+    animation-delay: 0s;
+}
+
+.devojce.aktivna .b2 {
+    animation-delay: 0.5s;
+}
+
+.devojce.aktivna .b3 {
+    animation-delay: 1s;
+}
+
+.devojce.aktivna .b4 {
+    animation-delay: 1.5s;
+}
+
+.devojce.aktivna .b5 {
+    animation-delay: 2s;
+}
+
+
+@keyframes pratiBaknez {
+
+    0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(180px, -180px) rotate(25deg) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* MOMCE */
+
+.momce {
+    position: absolute;
+    width: 180px;
+    height: 330px;
+
+    right: -250px;
+    bottom: 20%;
+
+    opacity: 0;
+
+    transition:
+            right 1.2s ease,
+            opacity 1.2s ease;
+}
+
+
+/* KOSA */
+
+.momce-kosa {
+    position: absolute;
+
+    width: 105px;
+    height: 70px;
+
+    background: #33241f;
+
+    border-radius: 60px 60px 20px 20px;
+
+    top: 10px;
+    left: 38px;
+
+    z-index: 3;
+}
+
+
+/* GLAVA */
+
+.momce-glava {
+    position: absolute;
+
+    width: 90px;
+    height: 105px;
+
+    background: #e8b795;
+
+    border-radius: 45%;
+
+    top: 35px;
+    left: 45px;
+
+    z-index: 2;
+}
+
+
+/* OCI */
+
+.momce-oci {
+    position: absolute;
+
+    top: 78px;
+    left: 67px;
+
+    display: flex;
+    gap: 22px;
+
+    z-index: 5;
+}
+
+.momce-oci span {
+    width: 8px;
+    height: 8px;
+
+    background: #33241f;
+    border-radius: 50%;
+}
+
+
+/* NASMEVKA */
+
+.momce-nasmevka {
+    position: absolute;
+
+    width: 28px;
+    height: 12px;
+
+    border-bottom: 3px solid #8c5148;
+    border-radius: 50%;
+
+    top: 105px;
+    left: 76px;
+
+    z-index: 5;
+}
+
+
+/* TELO */
+
+.momce-telo {
+    position: absolute;
+
+    width: 125px;
+    height: 180px;
+
+    background: #252525;
+
+    border-radius: 60px 60px 15px 15px;
+
+    top: 135px;
+    left: 28px;
+}
+
+
+/* KOGA KE STISNEME ENTER */
+
+.vtora-strana.aktivna .momce {
+    right: 15%;
+    opacity: 1;
+}
+
+/* ==================================
+   ENTER - STOP NA SRCINJATA
+================================== */
+
+.vtora-strana.aktivna .srce {
+    animation: none;
+    opacity: 0;
+}
+
+
+/* ==================================
+   NAMIGNUVANJE
+================================== */
+
+.devojce.aktivna .oko:first-child {
+    animation: namigni 1.5s ease 2;
+}
+
+@keyframes namigni {
+
+    0%, 35%, 65%, 100% {
+        height: 12px;
+        border-radius: 50%;
+    }
+
+    45%, 55% {
+        height: 3px;
+        border-radius: 50%;
+    }
+}
+
+
+/* ==================================
+   BAKNEZI KON MOMCETO
+================================== */
+
+.devojce.aktivna .baknez {
+    animation: baknezKonMomce 2.5s ease-in-out infinite;
+}
+
+.devojce.aktivna .b1 {
+    animation-delay: 0.3s;
+}
+
+.devojce.aktivna .b2 {
+    animation-delay: 0.8s;
+}
+
+.devojce.aktivna .b3 {
+    animation-delay: 1.3s;
+}
+
+.devojce.aktivna .b4 {
+    animation-delay: 1.8s;
+}
+
+.devojce.aktivna .b5 {
+    animation-delay: 2.3s;
+}
+
+
+@keyframes baknezKonMomce {
+
+    0% {
+        transform:
+                translate(0, 0)
+                scale(0.4)
+                rotate(-15deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+                translate(130px, -60px)
+                scale(1)
+                rotate(10deg);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+                translate(300px, 10px)
+                scale(1.3)
+                rotate(25deg);
+
+        opacity: 0;
+    }
+}
+
+/* ==============================
+   TRETA STRANA
+================================ */
+
+.treta-strana {
+    width: 100%;
+    height: 100vh;
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    #5b4940 0%,
+                    #302622 45%,
+                    #171210 100%
+            );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    scroll-snap-align: start;
+}
+
+
+/* RAMKA OKOLU SLIKATA */
+
+.photo-card {
+    background: #f4eee7;
+
+    padding: 14px 14px 28px 14px;
+
+    border: 1px solid #d7c3ae;
+
+    box-shadow:
+            0 25px 60px rgba(0, 0, 0, 0.55),
+            0 0 30px rgba(230, 200, 170, 0.15);
+
+    transform: rotate(-2deg);
+
+    transition: 0.5s ease;
+
+    cursor: pointer;
+}
+
+
+/* MALO DVIZENJE KOGA KE STAVIS GLUVCE */
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+
+/* SLIKATA */
+
+.photo-card img {
+    display: block;
+
+    width: auto;
+    height: 68vh;
+
+    max-width: 80vw;
+
+    object-fit: contain;
+}
+
+
+/* TEKST POD SLIKATA */
+
+.photo-text {
+    text-align: center;
+    padding-top: 15px;
+
+    color: #46372f;
+}
+
+.photo-text h2 {
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+    font-weight: normal;
+
+    margin-bottom: 5px;
+}
+
+.photo-text p {
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+    font-style: italic;
+
+    color: #806c60;
+}
+
+/* =====================================
+   GLAVNO MENI
+===================================== */
+
+.menu-strana {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+    overflow: hidden;
+
+    z-index: 100;
+}
+
+
+/* POZADINSKA SLIKA */
+
+.menu-pozadina {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+}
+
+
+/* MALKU JA ZATEMNUVAME ZA KOPCINJATA */
+
+.menu-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(20, 10, 8, 0.20);
+
+    z-index: 2;
+}
+
+
+/* KOGA KE SE OTVORI */
+
+.menu-strana.otvoreno {
+    display: block;
+    animation: pojaviMenu 0.8s ease;
+}
+
+@keyframes pojaviMenu {
+
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================
+   KOPCINJA
+===================================== */
+
+.love-button {
+    position: absolute;
+
+    padding: 13px 25px;
+
+    background: rgba(255, 248, 240, 0.88);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    color: #4c3029;
+
+    font-family: Georgia, serif;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(6px);
+
+    box-shadow:
+            0 8px 25px rgba(0, 0, 0, 0.25);
+
+    z-index: 5;
+
+    transition: 0.3s ease;
+}
+
+.love-button:hover {
+    transform: scale(1.12);
+
+    background: #fff5ed;
+
+    box-shadow:
+            0 10px 35px rgba(0, 0, 0, 0.35),
+            0 0 20px rgba(255, 190, 190, 0.5);
+}
+
+
+/* =====================================
+   RASPORED NA KOPCINJATA
+===================================== */
+
+.kopce1 {
+    top: 15%;
+    left: 8%;
+}
+
+.kopce2 {
+    top: 35%;
+    left: 15%;
+}
+
+.kopce3 {
+    bottom: 18%;
+    left: 8%;
+}
+
+.kopce4 {
+    top: 15%;
+    right: 8%;
+}
+
+.kopce5 {
+    top: 40%;
+    right: 10%;
+}
+
+.kopce6 {
+    bottom: 17%;
+    right: 12%;
+}
+
+
+/* =====================================
+   SRCINJA
+===================================== */
+
+.love-button i {
+    position: absolute;
+
+    color: #e88c9a;
+
+    font-style: normal;
+    font-size: 19px;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* PRVO SRCE */
+
+.love-button i:nth-of-type(1) {
+    left: -15px;
+    top: 5px;
+}
+
+
+/* VTORO SRCE */
+
+.love-button i:nth-of-type(2) {
+    right: -15px;
+    top: 0;
+}
+
+
+/* TRETO SRCE */
+
+.love-button i:nth-of-type(3) {
+    right: 10px;
+    bottom: -15px;
+}
+
+
+/* KOGA GLUVČETO E VRZ KOPCETO */
+
+.love-button:hover i:nth-of-type(1) {
+    animation: srceLevo 1.5s infinite;
+}
+
+.love-button:hover i:nth-of-type(2) {
+    animation: srceDesno 1.5s 0.3s infinite;
+}
+
+.love-button:hover i:nth-of-type(3) {
+    animation: srceGore 1.5s 0.6s infinite;
+}
+
+
+@keyframes srceLevo {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-40px, -50px) scale(1.3);
+    }
+}
+
+
+@keyframes srceDesno {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(45px, -55px) scale(1.3);
+    }
+}
+
+
+@keyframes srceGore {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(15px, -65px) scale(1.2);
+    }
+}
+
+/* =========================================
+   ALBUM STRANA
+========================================= */
+
+.album-strana {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background:
+            radial-gradient(circle at center,
+            #6b5549 0%,
+            #382a25 55%,
+            #18110f 100%);
+
+    z-index: 300;
+
+    overflow: hidden;
+}
+
+.album-strana.prikazi {
+    display: flex;
+    animation: albumPojavi 0.7s ease;
+}
+
+@keyframes albumPojavi {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   KNIGA
+========================================= */
+
+.album-kniga {
+    position: relative;
+
+    width: 420px;
+    height: 570px;
+
+    perspective: 1800px;
+}
+
+
+/* =========================================
+   KORICA
+========================================= */
+
+.korica {
+    position: absolute;
+    inset: 0;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #6f3e3e,
+                    #482626
+            );
+
+    border-radius: 8px 18px 18px 8px;
+
+    padding: 25px;
+
+    box-shadow:
+            20px 25px 50px rgba(0, 0, 0, 0.55),
+            inset -8px 0 15px rgba(0, 0, 0, 0.25);
+
+    z-index: 20;
+
+    transform-origin: left center;
+
+    transition: 1.3s ease;
+}
+
+
+/* VNATRESNA RAMKA */
+
+.korica-ramka {
+    width: 100%;
+    height: 100%;
+
+    border: 2px solid #d8b991;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #ead6b8;
+
+    text-align: center;
+}
+
+
+/* NASLOV */
+
+.korica h1 {
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+    font-weight: normal;
+
+    letter-spacing: 7px;
+}
+
+.korica p {
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    letter-spacing: 4px;
+
+    font-style: italic;
+}
+
+
+/* LINIJA */
+
+.linija {
+    width: 100px;
+    height: 1px;
+
+    background: #d8b991;
+
+    margin: 25px;
+}
+
+
+/* SRCINJA NA KORICATA */
+
+.malo-srce {
+    font-size: 35px;
+
+    margin-bottom: 30px;
+}
+
+.malo-srce.dolu {
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+
+/* =========================================
+   OTVARANJE NA KORICATA
+========================================= */
+
+.album-kniga.otvorena {
+    width: 850px;
+}
+
+.album-kniga.otvorena .korica {
+    transform:
+            rotateY(-160deg);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   OTVORENA KNIGA
+========================================= */
+
+.otvorena-kniga {
+    position: absolute;
+
+    width: 850px;
+    height: 570px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+            translate(-50%, -50%)
+            scale(0.85);
+
+    display: flex;
+
+    opacity: 0;
+
+    transition: 1s ease;
+
+    pointer-events: none;
+
+    box-shadow:
+            0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.album-kniga.otvorena .otvorena-kniga {
+    opacity: 1;
+
+    transform:
+            translate(-50%, -50%)
+            scale(1);
+}
+
+
+/* =========================================
+   LEVA I DESNA STRANA
+========================================= */
+
+.leva-strana,
+.desna-strana {
+    width: 50%;
+    height: 100%;
+
+    background: #f5eee2;
+
+    position: relative;
+}
+
+.leva-strana {
+    border-radius: 12px 0 0 12px;
+
+    box-shadow:
+            inset -15px 0 25px rgba(90, 60, 45, 0.13);
+}
+
+.desna-strana {
+    border-radius: 0 12px 12px 0;
+
+    box-shadow:
+            inset 15px 0 25px rgba(90, 60, 45, 0.13);
+
+    padding: 35px;
+}
+
+
+/* SREDINA NA KNIGATA */
+
+.leva-strana::after {
+    content: "";
+
+    position: absolute;
+
+    right: -2px;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background:
+            linear-gradient(
+                    to right,
+                    rgba(80, 50, 40, 0.2),
+                    rgba(255, 255, 255, 0.4)
+            );
+}
+
+
+/* =========================================
+   TEKST LEVO
+========================================= */
+
+.album-naslov {
+    margin-top: 160px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    color: #60463d;
+}
+
+.album-poraka {
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    line-height: 1.8;
+
+    color: #94786a;
+}
+
+
+/* =========================================
+   FOTOGRAFIJA
+========================================= */
+
+.foto-strana {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    transform-origin: left center;
+}
+
+.foto-strana img {
+    width: 100%;
+    height: 430px;
+
+    object-fit: contain;
+
+    background: #ebe0d2;
+
+    padding: 9px;
+
+    box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* BROJ NA FOTOGRAFIJA */
+
+#brojSlika {
+    font-family: Georgia, serif;
+
+    color: #8c7468;
+
+    font-size: 13px;
+
+    margin-top: 17px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   ANIMACIJA NA LIST
+========================================= */
+
+.foto-strana.vrti {
+    animation: vrtiList 0.75s ease;
+}
+
+@keyframes vrtiList {
+
+    0% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+
+    45% {
+        transform: rotateY(-90deg);
+        opacity: 0.3;
+    }
+
+    55% {
+        transform: rotateY(90deg);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   PRESS ENTER
+========================================= */
+
+.enter-info {
+    position: absolute;
+
+    bottom: 25px;
+
+    color: #e7d6c8;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    animation: enterPulse 1.5s infinite;
+}
+
+@keyframes enterPulse {
+
+    0%, 100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   CETVRTA STRANA - OUR TIMELINE
+========================================= */
+
+.timeline-strana {
+    width: 100%;
+    min-height: 500vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+            radial-gradient(circle at top, #f3e5d8 0%, #ddc7b5 45%, #b99d89 100%);
+
+    padding: 110px 0 180px;
+
+    scroll-snap-align: start;
+}
+
+
+/* =========================================
+   NASLOV
+========================================= */
+
+.timeline-header {
+    text-align: center;
+    color: #5d443b;
+
+    margin-bottom: 130px;
+}
+
+.timeline-header > span {
+    display: block;
+
+    font-size: 38px;
+    color: #a65f70;
+
+    margin-bottom: 12px;
+}
+
+.timeline-header > p {
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+    letter-spacing: 7px;
+
+    color: #967468;
+
+    margin-bottom: 12px;
+}
+
+.timeline-header h1 {
+    font-family: Georgia, serif;
+
+    font-size: 48px;
+    font-weight: normal;
+    font-style: italic;
+
+    margin-bottom: 10px;
+}
+
+.timeline-header h2 {
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+    font-weight: normal;
+    font-style: italic;
+
+    color: #8d6d62;
+}
+
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+
+/* GLAVNA LINIJA */
+
+.timeline-line {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 3px;
+    height: 0;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    #9e6870,
+                    #bd8d82,
+                    #8b625c
+            );
+
+    border-radius: 20px;
+
+    box-shadow:
+            0 0 15px rgba(145, 86, 95, .25);
+
+    z-index: 1;
+
+    transition: height .15s linear;
+}
+
+
+/* =========================================
+   MOMENTI
+========================================= */
+
+.timeline-moment {
+    width: 100%;
+    min-height: 620px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transition:
+            opacity 1s ease,
+            transform 1.2s ease;
+}
+
+
+/* OD LEVO */
+
+.timeline-moment.left {
+    justify-content: flex-start;
+
+    padding-left: 7%;
+
+    transform: translateX(-120px);
+}
+
+
+/* OD DESNO */
+
+.timeline-moment.right {
+    justify-content: flex-end;
+
+    padding-right: 7%;
+
+    transform: translateX(120px);
+}
+
+
+/* KOGA KE SE POJAVI */
+
+.timeline-moment.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================================
+   FOTOGRAFIJA
+========================================= */
+
+.timeline-photo {
+    width: 280px;
+
+    padding:
+            12px
+            12px
+            42px;
+
+    background: #fffaf3;
+
+    box-shadow:
+            0 18px 40px rgba(69, 45, 35, .30);
+
+    position: relative;
+
+    transition: .4s ease;
+}
+
+.timeline-moment.left .timeline-photo {
+    transform: rotate(-5deg);
+}
+
+.timeline-moment.right .timeline-photo {
+    transform: rotate(5deg);
+}
+
+.timeline-photo:hover {
+    transform:
+            rotate(0deg)
+            scale(1.05) !important;
+}
+
+.timeline-photo img {
+    display: block;
+
+    width: 100%;
+    height: 330px;
+
+    object-fit: cover;
+}
+
+
+/* SELLOTEJP GORE */
+
+.timeline-photo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 28px;
+
+    top: -15px;
+    left: 50%;
+
+    transform:
+            translateX(-50%)
+            rotate(-3deg);
+
+    background:
+            rgba(235, 207, 181, .80);
+
+    box-shadow:
+            0 2px 5px rgba(80, 50, 40, .15);
+}
+
+
+/* =========================================
+   TEKST DO FOTOGRAFIJATA
+========================================= */
+
+.timeline-text {
+    width: 310px;
+
+    color: #60473f;
+
+    font-family: Georgia, serif;
+}
+
+
+/* LEVO MOMENT */
+
+.timeline-moment.left .timeline-text {
+    margin-left: 100px;
+}
+
+
+/* DESNO MOMENT */
+
+.timeline-moment.right .timeline-text {
+    order: -1;
+
+    text-align: right;
+
+    margin-right: 100px;
+}
+
+.timeline-text > span {
+    display: block;
+
+    font-size: 30px;
+
+    color: #a75f70;
+
+    margin-bottom: 13px;
+}
+
+.timeline-text h3 {
+    font-size: 27px;
+
+    font-weight: normal;
+    font-style: italic;
+
+    margin-bottom: 18px;
+}
+
+.timeline-text p {
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #82665c;
+}
+
+
+/* =========================================
+   TOCKI NA LINIJATA
+========================================= */
+
+.timeline-moment::after {
+    content: "♡";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+            translate(-50%, -50%);
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #f2dfd2;
+
+    border: 2px solid #a86c75;
+
+    color: #a75e70;
+
+    font-size: 25px;
+
+    box-shadow:
+            0 5px 15px rgba(75, 45, 40, .20);
+
+    z-index: 10;
+}
+
+
+/* =========================================
+   4½ YEARS
+========================================= */
+
+.years-section {
+    min-height: 720px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #60463e;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transform: scale(.85);
+
+    transition:
+            opacity 1.2s ease,
+            transform 1.2s ease;
+}
+
+.years-section.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.years-section > p {
+    font-size: 11px;
+
+    letter-spacing: 7px;
+
+    color: #987468;
+
+    margin-bottom: 15px;
+}
+
+.years-section h2 {
+    font-size: 48px;
+
+    font-weight: normal;
+    font-style: italic;
+
+    margin-bottom: 55px;
+}
+
+
+/* 3 FOTOGRAFII */
+
+.years-photos {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 40px;
+}
+
+.years-photos img {
+    width: 220px;
+    height: 280px;
+
+    object-fit: cover;
+
+    padding: 9px 9px 30px;
+
+    background: #fffaf4;
+
+    box-shadow:
+            0 15px 30px rgba(65, 40, 30, .28);
+
+    transition: .4s ease;
+}
+
+.years-photos img:nth-child(1) {
+    transform: rotate(-8deg);
+}
+
+.years-photos img:nth-child(2) {
+    width: 250px;
+    height: 315px;
+
+    transform: translateY(-20px);
+}
+
+.years-photos img:nth-child(3) {
+    transform: rotate(8deg);
+}
+
+.years-photos img:hover {
+    transform:
+            rotate(0deg)
+            translateY(-15px)
+            scale(1.05);
+
+    z-index: 10;
+}
+
+.years-section > span {
+    font-size: 15px;
+
+    font-style: italic;
+
+    color: #8d6c60;
+}
+
+
+/* =========================================
+   BROKEN PART
+========================================= */
+
+.broken-part {
+    min-height: 700px;
+
+    position: relative;
+
+    margin-top: 80px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #ead8d1;
+
+    background:
+            radial-gradient(
+                    circle,
+                    rgba(86, 62, 59, .96),
+                    rgba(40, 29, 29, .98)
+            );
+
+    box-shadow:
+            0 0 80px rgba(40, 25, 25, .35);
+
+    z-index: 7;
+
+    opacity: 0;
+
+    transition: opacity 1.5s ease;
+}
+
+.broken-part.visible {
+    opacity: 1;
+}
+
+
+/* PREKINATA LINIJA */
+
+.broken-line {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 3px;
+    height: 180px;
+
+    transform: translateX(-50%);
+
+    background:
+            repeating-linear-gradient(
+                    to bottom,
+                    #b98a85 0,
+                    #b98a85 12px,
+                    transparent 12px,
+                    transparent 27px
+            );
+}
+
+.broken-part > span {
+    font-size: 50px;
+
+    color: #b67980;
+
+    margin-bottom: 25px;
+}
+
+.broken-part h2 {
+    font-size: 40px;
+
+    font-weight: normal;
+    font-style: italic;
+
+    line-height: 1.4;
+
+    margin-bottom: 25px;
+}
+
+.broken-part p {
+    font-size: 16px;
+
+    font-style: italic;
+
+    line-height: 1.8;
+
+    color: #bfa7a0;
+}
+
+
+/* =========================================
+   CONTINUE
+========================================= */
+
+.continue-part {
+    min-height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #60443e;
+
+    position: relative;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transform: translateY(80px);
+
+    transition:
+            opacity 1.3s ease,
+            transform 1.3s ease;
+}
+
+.continue-part.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.continue-part > span {
+    font-size: 55px;
+
+    color: #ad6172;
+
+    margin-bottom: 20px;
+}
+
+.continue-part > p {
+    font-size: 11px;
+
+    letter-spacing: 8px;
+
+    color: #9b776c;
+
+    margin-bottom: 25px;
+}
+
+.continue-part h2 {
+    font-size: 38px;
+
+    font-weight: normal;
+    font-style: italic;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   PRAZNA IDNA FOTOGRAFIJA
+========================================= */
+
+.future-photo {
+    min-height: 520px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transform:
+            translateY(80px)
+            rotate(-5deg);
+
+    transition:
+            opacity 1.3s ease,
+            transform 1.3s ease;
+}
+
+.future-photo.visible {
+    opacity: 1;
+
+    transform:
+            translateY(0)
+            rotate(-3deg);
+}
+
+.future-paper {
+    width: 320px;
+    height: 400px;
+
+    padding:
+            18px
+            18px
+            55px;
+
+    background: #fffaf3;
+
+    box-shadow:
+            0 20px 50px rgba(65, 40, 30, .32);
+
+    position: relative;
+}
+
+.future-question {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #e5d4c8,
+                    #cbb3a4
+            );
+
+    color: rgba(103, 73, 65, .5);
+
+    font-size: 110px;
+
+    font-family: Georgia, serif;
+
+    animation:
+            questionPulse 2.5s infinite;
+}
+
+@keyframes questionPulse {
+
+    0%, 100% {
+        opacity: .4;
+    }
+
+    50% {
+        opacity: .9;
+    }
+
+}
+
+.future-paper p {
+    position: absolute;
+
+    left: 0;
+    bottom: 17px;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    font-style: italic;
+
+    color: #82675d;
+}
+
+
+/* =========================================
+   KRAJ
+========================================= */
+
+.timeline-ending {
+    min-height: 550px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: #60453e;
+
+    opacity: 0;
+
+    transform: scale(.8);
+
+    transition:
+            opacity 1.5s ease,
+            transform 1.5s ease;
+}
+
+.timeline-ending.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.timeline-ending > span {
+    font-size: 50px;
+
+    color: #ad5d70;
+
+    margin-bottom: 20px;
+}
+
+.timeline-ending h2 {
+    font-size: 42px;
+
+    font-weight: normal;
+    font-style: italic;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+.timeline-ending p {
+    font-size: 12px;
+
+    letter-spacing: 5px;
+
+    color: #9a786d;
+
+    text-transform: uppercase;
+}
+

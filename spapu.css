@@ -1,0 +1,652 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =====================================
+   CELATA STRANA
+===================================== */
+
+.spapu-page {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    #f8eee7 0%,
+                    #e7d2c3 55%,
+                    #c9a993 100%
+            );
+}
+
+
+/* mala tekstura */
+
+.spapu-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+            repeating-linear-gradient(
+                    90deg,
+                    rgba(80, 50, 35, 0.025) 0px,
+                    rgba(80, 50, 35, 0.025) 1px,
+                    transparent 1px,
+                    transparent 5px
+            );
+
+    pointer-events: none;
+}
+
+
+/* =====================================
+   NASLOV
+===================================== */
+
+.title {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+    color: #604238;
+
+    z-index: 10;
+}
+
+.title p {
+    font-size: 12px;
+    letter-spacing: 7px;
+
+    color: #9a7667;
+
+    margin-bottom: 5px;
+}
+
+.title h1 {
+    font-size: 42px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.title span {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 25px;
+    color: #b35f72;
+}
+
+
+/* =====================================
+   CENTRALNA FOTOGRAFIJA
+===================================== */
+
+.spapu-photo {
+    position: absolute;
+
+    width: 270px;
+
+    left: 50%;
+    top: 49%;
+
+    transform:
+            translate(-50%, -50%)
+            rotate(-2deg);
+
+    padding:
+            12px
+            12px
+            42px
+            12px;
+
+    background: #fffaf3;
+
+    box-shadow:
+            0 20px 45px rgba(67, 42, 31, 0.35);
+
+    z-index: 5;
+
+    transition: 0.4s ease;
+}
+
+.spapu-photo:hover {
+    transform:
+            translate(-50%, -50%)
+            rotate(0deg)
+            scale(1.04);
+}
+
+.spapu-photo img {
+    display: block;
+
+    width: 100%;
+    height: 330px;
+
+    object-fit: cover;
+}
+
+.spapu-photo p {
+    position: absolute;
+
+    bottom: 13px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #76574c;
+
+    font-size: 15px;
+    font-style: italic;
+
+    letter-spacing: 2px;
+}
+
+
+/* LEPLIVA LENTA */
+
+.tape {
+    position: absolute;
+
+    width: 90px;
+    height: 27px;
+
+    left: 50%;
+    top: -14px;
+
+    transform:
+            translateX(-50%)
+            rotate(3deg);
+
+    background: rgba(239, 210, 187, 0.78);
+
+    box-shadow:
+            0 2px 4px rgba(70, 45, 35, 0.15);
+
+    z-index: 10;
+}
+
+
+/* =====================================
+   KARTICKI
+===================================== */
+
+.card {
+    position: absolute;
+
+    width: 210px;
+    min-height: 90px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 18px;
+
+    text-align: center;
+
+    background: #fff7df;
+
+    color: #65483e;
+
+    font-size: 17px;
+    font-style: italic;
+
+    line-height: 1.4;
+
+    box-shadow:
+            0 8px 18px rgba(70, 45, 35, 0.25);
+
+    z-index: 4;
+
+    transition:
+            transform 0.35s ease,
+            box-shadow 0.35s ease;
+}
+
+
+/* mala igla */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    top: 7px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background:
+            radial-gradient(
+                    circle at 35% 30%,
+                    #f9b4c1,
+                    #a94860 65%,
+                    #6f293c
+            );
+
+    box-shadow:
+            0 2px 4px rgba(0,0,0,0.3);
+}
+
+
+/* =====================================
+   RASPORED NA KARTICKITE
+===================================== */
+
+.card1 {
+    left: 7%;
+    top: 17%;
+
+    transform: rotate(-7deg);
+}
+
+.card2 {
+    left: 13%;
+    top: 43%;
+
+    transform: rotate(5deg);
+}
+
+.card3 {
+    left: 6%;
+    bottom: 13%;
+
+    transform: rotate(-4deg);
+}
+
+
+.card4 {
+    right: 7%;
+    top: 17%;
+
+    transform: rotate(6deg);
+}
+
+.card5 {
+    right: 12%;
+    top: 43%;
+
+    transform: rotate(-5deg);
+}
+
+.card6 {
+    right: 6%;
+    bottom: 13%;
+
+    transform: rotate(5deg);
+}
+
+
+/* HOVER */
+
+.card:hover {
+    transform:
+            rotate(0deg)
+            scale(1.12);
+
+    box-shadow:
+            0 15px 30px rgba(70, 45, 35, 0.35);
+
+    z-index: 20;
+}
+
+
+/* =====================================
+   TAJNO KOPCE
+===================================== */
+
+.secret-button {
+    position: absolute;
+
+    left: 50%;
+    bottom: 3%;
+
+    transform: translateX(-50%);
+
+    padding: 12px 25px;
+
+    border: 1px solid #b9897c;
+
+    border-radius: 30px;
+
+    background: rgba(255, 248, 242, 0.9);
+
+    color: #67473e;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+    font-style: italic;
+
+    cursor: pointer;
+
+    z-index: 30;
+
+    box-shadow:
+            0 6px 15px rgba(70, 40, 30, 0.18);
+
+    transition: 0.3s ease;
+}
+
+.secret-button:hover {
+    transform:
+            translateX(-50%)
+            scale(1.08);
+
+    background: white;
+
+    box-shadow:
+            0 8px 25px rgba(70, 40, 30, 0.3);
+}
+
+
+/* =====================================
+   FINALNA PORAKA
+   SEGA E SKRIENA
+===================================== */
+
+.final-message {
+    display: none;
+}
+/* =====================================
+   KARTICKITE ODLETUVAAT
+===================================== */
+
+.card.fly-away {
+    animation: flyAway 0.8s ease forwards;
+}
+
+.card:nth-of-type(odd).fly-away {
+    animation: flyAwayLeft 0.8s ease forwards;
+}
+
+@keyframes flyAway {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+                translate(700px, -300px)
+                rotate(40deg)
+                scale(0.3);
+
+        opacity: 0;
+    }
+}
+
+@keyframes flyAwayLeft {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+                translate(-700px, -300px)
+                rotate(-40deg)
+                scale(0.3);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================
+   NASLOVOT ISCEZNUVA
+===================================== */
+
+.title.hide-title {
+    animation: disappear 0.6s ease forwards;
+}
+
+@keyframes disappear {
+
+    from {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.7);
+    }
+}
+
+
+/* =====================================
+   KOPCETO ISCEZNUVA
+===================================== */
+
+.secret-button.hide-button {
+    animation: buttonDisappear 0.5s ease forwards;
+
+    pointer-events: none;
+}
+
+@keyframes buttonDisappear {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================
+   FINALNA POZADINA
+===================================== */
+
+.spapu-page::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+            radial-gradient(
+                    circle at center,
+                    rgba(255, 245, 240, 0.2),
+                    rgba(80, 45, 40, 0.45)
+            );
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 1s ease;
+
+    z-index: 30;
+}
+
+.spapu-page.final-mode::after {
+    opacity: 1;
+}
+
+
+/* =====================================
+   FINALNA SLIKA
+===================================== */
+
+.spapu-photo.final-photo {
+
+    z-index: 50;
+
+    animation: finalPhoto 1.2s ease forwards;
+}
+
+@keyframes finalPhoto {
+
+    0% {
+
+        transform:
+                translate(-50%, -50%)
+                rotate(-2deg)
+                scale(1);
+    }
+
+    40% {
+
+        transform:
+                translate(-50%, -50%)
+                rotate(5deg)
+                scale(1.15);
+    }
+
+    70% {
+
+        transform:
+                translate(-50%, -50%)
+                rotate(-3deg)
+                scale(1.25);
+    }
+
+    100% {
+
+        left: 35%;
+        top: 50%;
+
+        transform:
+                translate(-50%, -50%)
+                rotate(-3deg)
+                scale(1.15);
+    }
+}
+
+
+/* =====================================
+   FINALNA PORAKA
+===================================== */
+
+.final-message.show-message {
+
+    display: flex;
+
+    position: absolute;
+
+    width: 430px;
+    min-height: 280px;
+
+    right: 12%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background: rgba(255, 248, 241, 0.95);
+
+    color: #604039;
+
+    box-shadow:
+            0 20px 50px rgba(50, 25, 20, 0.35);
+
+    z-index: 60;
+
+    animation: showFinalMessage 1s ease forwards;
+}
+
+
+@keyframes showFinalMessage {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+                translateY(-50%)
+                translateX(150px)
+                rotate(5deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+                translateY(-50%)
+                translateX(0)
+                rotate(-2deg);
+    }
+}
+
+
+/* SRCE */
+
+.final-message span {
+
+    font-size: 45px;
+
+    color: #b25c70;
+
+    margin-bottom: 20px;
+}
+
+
+/* GLAVNA PORAKA */
+
+.final-message h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    font-weight: normal;
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+}
+
+
+/* MAL TEKST */
+
+.final-message p {
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    font-style: italic;
+
+    color: #987468;
+
+    letter-spacing: 1px;
+}

@@ -1,0 +1,552 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.envelope-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+            radial-gradient(circle at center, #fff4f7 0%, #f8dce5 55%, #eebdca 100%);
+}
+
+.envelope-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CELIOT PLIK */
+
+.envelope {
+    position: relative;
+
+    width: 520px;
+    height: 330px;
+
+    background: #e7a7b8;
+
+    border-radius: 8px;
+
+    box-shadow:
+            0 25px 50px rgba(91, 37, 54, 0.25),
+            0 8px 15px rgba(91, 37, 54, 0.15);
+
+    overflow: hidden;
+}
+
+/* DOLNIOT DEL */
+
+.envelope-bottom {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    bottom: 0;
+    left: 0;
+
+    background: linear-gradient(
+            145deg,
+            #efb6c4,
+            #d98fa3
+    );
+
+    z-index: 2;
+}
+
+/* LEVA STRANA */
+
+.envelope-left {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-top: 165px solid transparent;
+    border-bottom: 165px solid transparent;
+    border-left: 260px solid #efaebe;
+
+    left: 0;
+    top: 0;
+
+    z-index: 3;
+}
+
+/* DESNA STRANA */
+
+.envelope-right {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-top: 165px solid transparent;
+    border-bottom: 165px solid transparent;
+    border-right: 260px solid #dc91a5;
+
+    right: 0;
+    top: 0;
+
+    z-index: 3;
+}
+
+/* GORNIOT KAPAK */
+
+.envelope-flap {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-left: 260px solid transparent;
+    border-right: 260px solid transparent;
+    border-top: 190px solid #f5c1cd;
+
+    top: 0;
+    left: 0;
+
+    z-index: 5;
+
+    transform-origin: top center;
+
+    transition: transform 1.2s ease;
+}
+
+/* OPEN ME */
+
+.envelope::after {
+    content: "OPEN ME";
+
+    position: absolute;
+
+    top: 205px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #7c3e50;
+
+    font-size: 20px;
+    letter-spacing: 5px;
+
+    z-index: 7;
+}
+
+/* LINIJA PO KOJA SE VLECE SRCETO */
+
+.heart-track {
+    position: absolute;
+
+    width: 300px;
+    height: 6px;
+
+    left: 50%;
+    top: 255px;
+
+    transform: translateX(-50%);
+
+    background: rgba(255, 255, 255, 0.55);
+
+    border-radius: 20px;
+
+    z-index: 8;
+}
+
+/* SRCETO */
+
+.heart {
+    position: absolute;
+
+    width: 52px;
+    height: 52px;
+
+    left: -5px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #a93655;
+
+    color: white;
+
+    font-size: 27px;
+
+    border-radius: 50%;
+
+    cursor: grab;
+
+    user-select: none;
+
+    box-shadow:
+            0 5px 15px rgba(104, 31, 51, 0.35);
+
+    transition: box-shadow 0.2s;
+}
+
+.heart:hover {
+    box-shadow:
+            0 7px 22px rgba(104, 31, 51, 0.5);
+}
+
+.heart:active {
+    cursor: grabbing;
+}
+
+/* TEKST POD PLIKOTO */
+
+.drag-text {
+    margin-top: 35px;
+
+    color: #8b5363;
+
+    font-size: 15px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    animation: pulseText 2s infinite;
+}
+
+@keyframes pulseText {
+
+    0%, 100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* KOGA PLIKOTO KE SE OTVORI */
+
+.envelope.opened .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope.opened .heart-track {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.envelope.opened::after {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* =========================================
+   PISMOTO VNATRE VO PLIKOTO
+========================================= */
+
+.letter {
+    position: absolute;
+
+    width: 390px;
+    height: 250px;
+
+    left: 50%;
+    bottom: 20px;
+
+    transform: translateX(-50%);
+
+    z-index: 1;
+
+    transition:
+            transform 1.4s ease,
+            width 1.4s ease,
+            height 1.4s ease;
+}
+
+
+/* SAMIOT LIST */
+
+.letter-paper {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 50px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #f8d7dc,
+                    #f2bdc8,
+                    #f7d9dd
+            );
+
+    box-shadow:
+            0 15px 40px rgba(80, 30, 40, 0.35);
+
+    overflow: hidden;
+
+    /* nepravilni rabovi */
+    clip-path: polygon(
+            2% 3%,
+            8% 1%,
+            15% 3%,
+            23% 1%,
+            32% 3%,
+            41% 1%,
+            51% 2%,
+            61% 0%,
+            70% 3%,
+            80% 1%,
+            90% 3%,
+            98% 1%,
+
+            100% 10%,
+            98% 20%,
+            100% 30%,
+            98% 42%,
+            100% 52%,
+            98% 65%,
+            100% 77%,
+            98% 90%,
+
+            99% 98%,
+            90% 100%,
+            80% 97%,
+            70% 100%,
+            60% 98%,
+            50% 100%,
+            40% 97%,
+            30% 100%,
+            20% 97%,
+            10% 100%,
+            1% 97%,
+
+            0% 88%,
+            2% 75%,
+            0% 62%,
+            2% 50%,
+            0% 38%,
+            2% 25%,
+            0% 13%
+    );
+}
+
+
+/* POTEMNI IZGORENI RABOVI */
+
+.letter-paper::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    box-shadow:
+            inset 0 0 25px #8c5360,
+            inset 0 0 50px rgba(104, 48, 59, 0.35);
+
+    z-index: 3;
+}
+
+
+/* MALI TEMNI DELOVI NA RABOVITE */
+
+.burn {
+    position: absolute;
+
+    background: #70434b;
+
+    border-radius: 50%;
+
+    opacity: 0.55;
+
+    filter: blur(3px);
+}
+
+.burn1 {
+    width: 55px;
+    height: 25px;
+
+    top: -12px;
+    left: 15%;
+}
+
+.burn2 {
+    width: 35px;
+    height: 65px;
+
+    right: -15px;
+    top: 35%;
+}
+
+.burn3 {
+    width: 65px;
+    height: 25px;
+
+    bottom: -12px;
+    left: 55%;
+}
+
+.burn4 {
+    width: 30px;
+    height: 60px;
+
+    left: -14px;
+    top: 55%;
+}
+
+
+/* =========================================
+   KOGA PLIKOTO E OTVOREN
+========================================= */
+
+.envelope.opened {
+    overflow: visible;
+}
+
+.envelope.opened .letter {
+
+    width: 650px;
+    height: 75vh;
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 50%;
+
+    transform:
+            translate(-50%, 50%)
+            scale(1);
+
+    z-index: 100;
+}
+
+
+/* LISTOT SE POJAVUVA SO MALO DOCNENJE */
+
+.envelope.opened .letter-paper {
+    animation: izleziPismo 1.5s ease forwards;
+}
+
+@keyframes izleziPismo {
+
+    0% {
+        transform: translateY(180px) scale(0.65);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* MESTO ZA TEKSTOT */
+
+.letter-content {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 5;
+
+    color: #57353d;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ================================
+   TEKSTOT NA PISMOTO
+================================ */
+
+.letter-content {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 5px 15px 25px 5px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    color: #57353d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.75;
+
+    text-align: left;
+
+    scrollbar-width: thin;
+    scrollbar-color: #b97888 transparent;
+}
+
+.letter-content h1 {
+    font-size: 32px;
+    font-weight: normal;
+    font-style: italic;
+
+    color: #7b4050;
+
+    margin-bottom: 25px;
+}
+
+.letter-content p {
+    margin-bottom: 18px;
+}
+
+.letter-content strong {
+    color: #9b405a;
+    letter-spacing: 1px;
+}
+
+.letter-ending {
+    text-align: right;
+
+    font-size: 35px;
+
+    color: #a94f68;
+
+    padding: 10px 20px 20px 0;
+}
+
+
+/* SCROLLBAR */
+
+.letter-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.letter-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.letter-content::-webkit-scrollbar-thumb {
+    background: #b97888;
+    border-radius: 20px;
+}

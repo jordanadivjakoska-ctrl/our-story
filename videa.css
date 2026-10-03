@@ -1,0 +1,454 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+
+/* ==============================
+   GAME
+============================== */
+
+.game {
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+            linear-gradient(
+                    to bottom,
+                    #f9e8eb 0%,
+                    #f6dadd 55%,
+                    #dfb9ae 100%
+            );
+}
+
+
+/* ==============================
+   NASLOV
+============================== */
+
+.game-title {
+    position: absolute;
+
+    top: 6%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+
+    color: #6e4548;
+}
+
+.game-title h1 {
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    font-style: italic;
+}
+
+.game-title p {
+    margin-top: 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.65;
+}
+
+
+/* ==============================
+   ZEMJA
+============================== */
+
+.ground {
+    position: absolute;
+
+    left: 0;
+    bottom: 70px;
+
+    width: 100%;
+    height: 8px;
+
+    background: #805a50;
+
+    box-shadow:
+            0 5px 15px rgba(70, 40, 35, 0.25);
+}
+
+
+/* ==============================
+   COVECINJA
+============================== */
+
+.character {
+    position: absolute;
+
+    width: 90px;
+    height: 180px;
+
+    bottom: 78px;
+
+    z-index: 10;
+}
+
+
+/* JAS */
+
+.me {
+    left: 4%;
+}
+
+
+/* RATKO */
+
+.him {
+    right: 4%;
+}
+
+
+/* ==============================
+   GLAVA
+============================== */
+
+.head {
+    position: absolute;
+
+    width: 72px;
+    height: 72px;
+
+    top: 0;
+    left: 9px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 4px solid #fff5ef;
+
+    box-shadow:
+            0 5px 12px rgba(70, 35, 35, 0.25);
+
+    z-index: 5;
+}
+
+.head img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ==============================
+   TELO
+============================== */
+
+.body {
+    position: absolute;
+
+    width: 48px;
+    height: 75px;
+
+    top: 68px;
+    left: 21px;
+
+    border-radius: 25px 25px 12px 12px;
+
+    background: #a65f72;
+}
+
+
+/* RATKO DRUGA BOJA */
+
+.him .body {
+    background: #54515b;
+}
+
+
+/* ==============================
+   RACE
+============================== */
+
+.arm {
+    position: absolute;
+
+    width: 13px;
+    height: 65px;
+
+    top: 76px;
+
+    border-radius: 10px;
+
+    background: #d9a181;
+
+    transform-origin: top center;
+}
+
+.arm-left {
+    left: 17px;
+    transform: rotate(20deg);
+}
+
+.arm-right {
+    right: 17px;
+    transform: rotate(-20deg);
+}
+
+
+/* ==============================
+   NOZE
+============================== */
+
+.leg {
+    position: absolute;
+
+    width: 15px;
+    height: 55px;
+
+    top: 135px;
+
+    border-radius: 10px;
+
+    background: #72515b;
+
+    transform-origin: top center;
+}
+
+.leg-left {
+    left: 26px;
+}
+
+.leg-right {
+    right: 26px;
+}
+
+.him .leg {
+    background: #3f3d43;
+}
+
+
+/* ==============================
+   PRECKI
+============================== */
+
+.obstacle {
+    position: absolute;
+
+    bottom: 78px;
+
+    width: 55px;
+
+    background:
+            linear-gradient(
+                    135deg,
+                    #a56c5e,
+                    #71483f
+            );
+
+    border-radius: 7px 7px 0 0;
+
+    box-shadow:
+            0 7px 15px rgba(70, 40, 35, 0.25);
+
+    z-index: 5;
+}
+
+
+/* PRVA */
+
+.obstacle1 {
+    left: 25%;
+
+    height: 80px;
+}
+
+
+/* VTORA */
+
+.obstacle2 {
+    left: 48%;
+
+    width: 75px;
+    height: 115px;
+}
+
+
+/* TRETA */
+
+.obstacle3 {
+    left: 69%;
+
+    height: 65px;
+}
+
+
+/* ==============================
+   SRCA
+============================== */
+
+.hearts {
+    position: absolute;
+
+    right: 4%;
+    bottom: 240px;
+
+    width: 150px;
+    height: 180px;
+
+    display: none;
+
+    z-index: 50;
+}
+
+.hearts span {
+    position: absolute;
+
+    color: #c65d73;
+
+    font-size: 28px;
+
+    animation: heartFly 2s infinite;
+}
+
+.hearts span:nth-child(1) {
+    left: 20px;
+    bottom: 0;
+}
+
+.hearts span:nth-child(2) {
+    left: 60px;
+    bottom: 10px;
+
+    animation-delay: 0.3s;
+}
+
+.hearts span:nth-child(3) {
+    left: 100px;
+    bottom: 0;
+
+    animation-delay: 0.6s;
+}
+
+.hearts span:nth-child(4) {
+    left: 40px;
+    bottom: 20px;
+
+    animation-delay: 0.9s;
+}
+
+.hearts span:nth-child(5) {
+    left: 80px;
+    bottom: 15px;
+
+    animation-delay: 1.2s;
+}
+
+
+@keyframes heartFly {
+
+    0% {
+        opacity: 0;
+
+        transform:
+                translateY(0)
+                scale(0.5);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+                translateY(-160px)
+                scale(1.4)
+                rotate(20deg);
+    }
+}
+
+
+/* ==============================
+   FINALNA PORAKA
+============================== */
+
+.win-message {
+    position: absolute;
+
+    top: 25%;
+    left: 50%;
+
+    transform:
+            translate(-50%, -50%)
+            scale(0.5);
+
+    text-align: center;
+
+    color: #70444d;
+
+    opacity: 0;
+
+    transition: 0.8s ease;
+
+    z-index: 100;
+}
+
+.win-message.show {
+    opacity: 1;
+
+    transform:
+            translate(-50%, -50%)
+            scale(1);
+}
+
+.win-message h2 {
+    font-family: Georgia, serif;
+
+    font-size: 45px;
+
+    font-weight: normal;
+
+    font-style: italic;
+}
+
+.win-message p {
+    margin-top: 12px;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    font-style: italic;
+}
+
+
+/* ==============================
+   GUSKANJE
+============================== */
+
+.character.hugging .arm-left {
+    transform: rotate(-70deg);
+}
+
+.character.hugging .arm-right {
+    transform: rotate(70deg);
+}
+
+.character.hugging {
+    transition: 0.7s ease;
+}
